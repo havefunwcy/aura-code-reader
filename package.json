@@ -1,0 +1,144 @@
+{
+	"name": "aura-code-reader",
+	"displayName": "Aura Code Reader (Python 极客流阅读器)",
+	"description": "将 PDF 文档转化为 Python 极客代码沉浸阅读，支持有道 Hover 查词、状态栏极简释义、章节大纲与生词本管理",
+	"version": "1.0.0",
+	"publisher": "havefunwcy",
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Other",
+		"Education"
+	],
+	"main": "./extension.js",
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "aura.openPdf",
+				"title": "Aura: 打开本地 PDF 转 Python 代码流阅读",
+				"category": "Aura Reader"
+			},
+			{
+				"command": "aura.addVocab",
+				"title": "Aura: 收藏至生词本",
+				"category": "Aura Reader"
+			},
+			{
+				"command": "aura.removeVocab",
+				"title": "Aura: 从生词本移除",
+				"category": "Aura Reader"
+			},
+			{
+				"command": "aura.syncAnki",
+				"title": "Aura: 一键同步生词至 Anki",
+				"category": "Aura Reader",
+				"icon": "$(sync)"
+			},
+			{
+				"command": "aura.exportAnki",
+				"title": "Aura: 导出生词本为 Anki CSV",
+				"category": "Aura Reader",
+				"icon": "$(cloud-download)"
+			},
+			{
+				"command": "aura.clearVocab",
+				"title": "Aura: 清空生词本",
+				"category": "Aura Reader",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "aura.playAudio",
+				"title": "Aura: 朗读当前单词",
+				"category": "Aura Reader"
+			},
+			{
+				"command": "aura.bossKey",
+				"title": "Aura: 老板键 - 瞬间切换工作代码",
+				"category": "Aura Reader"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "aura.openPdf",
+				"key": "ctrl+alt+o",
+				"mac": "cmd+alt+o"
+			},
+			{
+				"command": "aura.bossKey",
+				"key": "ctrl+alt+b",
+				"mac": "cmd+alt+b"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "aura-reader-panel",
+					"title": "Aura 极客阅读器",
+					"icon": "icons/aura-icon.svg"
+				}
+			]
+		},
+		"views": {
+			"aura-reader-panel": [
+				{
+					"id": "aura.outlineView",
+					"name": "章节大纲 (Chapters)"
+				},
+				{
+					"id": "aura.vocabView",
+					"name": "触感生词本 (Vocab Book)"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "aura.syncAnki",
+					"when": "view == aura.vocabView",
+					"group": "navigation@1"
+				},
+				{
+					"command": "aura.exportAnki",
+					"when": "view == aura.vocabView",
+					"group": "navigation@2"
+				},
+				{
+					"command": "aura.clearVocab",
+					"when": "view == aura.vocabView",
+					"group": "navigation@3"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "aura.playAudio",
+					"when": "view == aura.vocabView",
+					"group": "inline"
+				},
+				{
+					"command": "aura.removeVocab",
+					"when": "view == aura.vocabView",
+					"group": "inline"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "aura.addVocab",
+					"group": "aura@1"
+				},
+				{
+					"command": "aura.playAudio",
+					"group": "aura@2"
+				}
+			]
+		}
+	},
+	"__metadata": {
+		"installedTimestamp": 1791961954621,
+		"targetPlatform": "undefined",
+		"size": 1449754
+	}
+}
