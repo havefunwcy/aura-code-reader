@@ -62,6 +62,15 @@ Copy-Item -Path "C:\Users\HP\.gemini\antigravity\scratch\aura-code-reader" -Dest
 
 ---
 
+## 📚 内置开箱即用样例书籍 (Example Book)
+
+本项目在 `examples/` 目录下内置了著名科幻小说《挽救计划》（*Project Hail Mary* - Andy Weir）的完整 Python 极客流全书源码：
+- **文件路径**：`examples/Project_Hail_Mary_Andy_Weir_.py`
+- **全书规模**：467 页小说完整重构为 23,000+ 行标准 PEP8 规范 Python 代码，包含全部 37 个章节及完整大纲索引；
+- **体验方式**：在 VS Code 中直接打开该文件，即可体验流畅的 Python 场景阅读、语境自适应悬停查词与 Anki 闭环同步！
+
+---
+
 ## 📄 开源许可证
 
 MIT License © 2026 [havefunwcy](https://github.com/havefunwcy)
